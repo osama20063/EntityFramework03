@@ -338,6 +338,45 @@ namespace Assignment_3_EF_Core
         //}
         #endregion
 
+
+
+        #region Operation: Add Course
+        //public static void AddCourse(LearningPlatformDbContext context, string title, string? description, decimal price, CourseLevel level, bool isPublished, int instructorId, int categoryId)
+        //{
+           
+        //    var instructorExists = context.Instructors.Any(i => i.Id == instructorId);
+        //    var categoryExists = context.Categories.Any(c => c.Id == categoryId);
+
+        //    if (!instructorExists)
+        //    {
+        //        Console.WriteLine($"Error: Instructor with Id {instructorId} does not exist.");
+        //        return;
+        //    }
+
+        //    if (!categoryExists)
+        //    {
+        //        Console.WriteLine($"Error: Category with Id {categoryId} does not exist.");
+        //        return;
+        //    }
+
+        //    var course = new Course
+        //    {
+        //        Title = title,
+        //        Description = description,
+        //        Price = price,
+        //        Level = level,
+        //        IsPublished = isPublished,
+        //        PublishedDate = isPublished ? DateTime.Now : null,
+        //        InstructorId = instructorId,
+        //        CategoryId = categoryId
+        //    };
+
+        //    context.Courses.Add(course);
+        //    context.SaveChanges();
+
+        //    Console.WriteLine($"Course added successfully with Id: {course.Id}");
+        //}
+        #endregion
     }
 }
 }
