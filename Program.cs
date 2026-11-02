@@ -343,7 +343,7 @@ namespace Assignment_3_EF_Core
         #region Operation: Add Course
         //public static void AddCourse(LearningPlatformDbContext context, string title, string? description, decimal price, CourseLevel level, bool isPublished, int instructorId, int categoryId)
         //{
-           
+
         //    var instructorExists = context.Instructors.Any(i => i.Id == instructorId);
         //    var categoryExists = context.Categories.Any(c => c.Id == categoryId);
 
@@ -377,6 +377,28 @@ namespace Assignment_3_EF_Core
         //    Console.WriteLine($"Course added successfully with Id: {course.Id}");
         //}
         #endregion
+
+        #region Operation: Add Several Students
+    //    public static void AddStudents(LearningPlatformDbContext context)
+    //    {
+    //        var students = new List<Student>
+    //{
+    //    new Student { FullName = "Karim Nabil", Email = "karim@gmail.com", DateOfBirth = new DateTime(2001, 4, 10) },
+    //    new Student { FullName = "Nourhan Adel", Email = "nourhan@gmail.com", DateOfBirth = new DateTime(2002, 9, 25) },
+    //    new Student { FullName = "Ziad Ahmed", Email = "ziad@gmail.com", DateOfBirth = new DateTime(2003, 12, 1) }
+    //};
+
+    //        context.Students.AddRange(students);
+    //        context.SaveChanges();
+
+    //        Console.WriteLine("Students added successfully with the following IDs:");
+    //        foreach (var student in students)
+    //        {
+    //            Console.WriteLine($"- Student: {student.FullName}, Id: {student.Id}");
+    //        }
+    //    }
+        #endregion
+
     }
 }
 }
