@@ -1,4 +1,6 @@
-﻿namespace Assignment_3_EF_Core
+﻿using System.Reflection.Emit;
+
+namespace Assignment_3_EF_Core
 {
     internal class Program
     {
@@ -93,92 +95,120 @@
 
 
             #region Question 2: Fluent API Configurations
+            //            using Microsoft.EntityFrameworkCore;
+            //            using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+            //public class InstructorConfiguration : IEntityTypeConfiguration<Instructor>
+            //        {
+            //            public void Configure(EntityTypeBuilder<Instructor> builder)
+            //            {
+            //                builder.HasKey(i => i.Id);
+            //                builder.Property(i => i.FullName).IsRequired().HasMaxLength(100);
+            //                builder.Property(i => i.Email).IsRequired().HasMaxLength(150);
+            //                builder.Property(i => i.Bio).HasMaxLength(500);
+            //                builder.Property(i => i.JoinedDate).IsRequired();
+            //            }
+            //        }
+
+            //        public class CategoryConfiguration : IEntityTypeConfiguration<Category>
+            //        {
+            //            public void Configure(EntityTypeBuilder<Category> builder)
+            //            {
+            //                builder.HasKey(c => c.Id);
+            //                builder.Property(c => c.Name).IsRequired().HasMaxLength(100);
+            //                builder.Property(c => c.Description).HasMaxLength(300);
+
+
+            //                builder.HasOne(c => c.Parent)
+            //                       .WithMany(c => c.SubCategories)
+            //                       .HasForeignKey(c => c.ParentId)
+            //                       .OnDelete(DeleteBehavior.Restrict);
+            //            }
+            //        }
+
+            //        public class CourseConfiguration : IEntityTypeConfiguration<Course>
+            //        {
+            //            public void Configure(EntityTypeBuilder<Course> builder)
+            //            {
+            //                builder.HasKey(c => c.Id);
+            //                builder.Property(c => c.Title).IsRequired().HasMaxLength(150);
+            //                builder.Property(c => c.Description).HasMaxLength(1000);
+            //                builder.Property(c => c.Price).HasColumnType("decimal(18,2)").IsRequired();
+            //                builder.Property(c => c.Level).IsRequired();
+            //                builder.Property(c => c.IsPublished).IsRequired();
+
+            //                builder.HasOne(c => c.Instructor)
+            //                       .WithMany(i => i.Courses)
+            //                       .HasForeignKey(c => c.InstructorId)
+            //                       .OnDelete(DeleteBehavior.Cascade);
+
+            //                builder.HasOne(c => c.Category)
+            //                       .WithMany(cat => cat.Courses)
+            //                       .HasForeignKey(c => c.CategoryId)
+            //                       .OnDelete(DeleteBehavior.Restrict);
+            //            }
+            //        }
+
+            //        public class StudentConfiguration : IEntityTypeConfiguration<Student>
+            //        {
+            //            public void Configure(EntityTypeBuilder<Student> builder)
+            //            {
+            //                builder.HasKey(s => s.Id);
+            //                builder.Property(s => s.FullName).IsRequired().HasMaxLength(100);
+            //                builder.Property(s => s.Email).IsRequired().HasMaxLength(150);
+            //                builder.Property(s => s.DateOfBirth).IsRequired();
+            //            }
+            //        }
+
+            //        public class EnrollmentConfiguration : IEntityTypeConfiguration<Enrollment>
+            //        {
+            //            public void Configure(EntityTypeBuilder<Enrollment> builder)
+            //            {
+
+            //                builder.HasKey(e => new { e.StudentId, e.CourseId });
+
+            //                builder.Property(e => e.EnrollmentDate).IsRequired();
+            //                builder.Property(e => e.ProgressPercentage).IsRequired();
+            //                builder.Property(e => e.Status).IsRequired();
+            //                builder.Property(e => e.FinalGrade).HasColumnType("decimal(5,2)");
+
+            //                builder.HasOne(e => e.Student)
+            //                       .WithMany(s => s.Enrollments)
+            //                       .HasForeignKey(e => e.StudentId)
+            //                       .OnDelete(DeleteBehavior.Cascade);
+
+            //                builder.HasOne(e => e.Course)
+            //                       .WithMany(c => c.Enrollments)
+            //                       .HasForeignKey(e => e.CourseId)
+            //                       .OnDelete(DeleteBehavior.Cascade);
+            //            }
+            //        }
+            #endregion
+
+
+            #region Question 3: DbContext Setup
 //            using Microsoft.EntityFrameworkCore;
-//            using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-//public class InstructorConfiguration : IEntityTypeConfiguration<Instructor>
+//public class LearningPlatformDbContext : DbContext
 //        {
-//            public void Configure(EntityTypeBuilder<Instructor> builder)
-//            {
-//                builder.HasKey(i => i.Id);
-//                builder.Property(i => i.FullName).IsRequired().HasMaxLength(100);
-//                builder.Property(i => i.Email).IsRequired().HasMaxLength(150);
-//                builder.Property(i => i.Bio).HasMaxLength(500);
-//                builder.Property(i => i.JoinedDate).IsRequired();
-//            }
-//        }
+//            public DbSet<Instructor> Instructors { get; set; }
+//            public DbSet<Category> Categories { get; set; }
+//            public DbSet<Course> Courses { get; set; }
+//            public DbSet<Student> Students { get; set; }
+//            public DbSet<Enrollment> Enrollments { get; set; }
 
-//        public class CategoryConfiguration : IEntityTypeConfiguration<Category>
-//        {
-//            public void Configure(EntityTypeBuilder<Category> builder)
-//            {
-//                builder.HasKey(c => c.Id);
-//                builder.Property(c => c.Name).IsRequired().HasMaxLength(100);
-//                builder.Property(c => c.Description).HasMaxLength(300);
-
-                
-//                builder.HasOne(c => c.Parent)
-//                       .WithMany(c => c.SubCategories)
-//                       .HasForeignKey(c => c.ParentId)
-//                       .OnDelete(DeleteBehavior.Restrict);
-//            }
-//        }
-
-//        public class CourseConfiguration : IEntityTypeConfiguration<Course>
-//        {
-//            public void Configure(EntityTypeBuilder<Course> builder)
-//            {
-//                builder.HasKey(c => c.Id);
-//                builder.Property(c => c.Title).IsRequired().HasMaxLength(150);
-//                builder.Property(c => c.Description).HasMaxLength(1000);
-//                builder.Property(c => c.Price).HasColumnType("decimal(18,2)").IsRequired();
-//                builder.Property(c => c.Level).IsRequired();
-//                builder.Property(c => c.IsPublished).IsRequired();
-
-//                builder.HasOne(c => c.Instructor)
-//                       .WithMany(i => i.Courses)
-//                       .HasForeignKey(c => c.InstructorId)
-//                       .OnDelete(DeleteBehavior.Cascade);
-
-//                builder.HasOne(c => c.Category)
-//                       .WithMany(cat => cat.Courses)
-//                       .HasForeignKey(c => c.CategoryId)
-//                       .OnDelete(DeleteBehavior.Restrict);
-//            }
-//        }
-
-//        public class StudentConfiguration : IEntityTypeConfiguration<Student>
-//        {
-//            public void Configure(EntityTypeBuilder<Student> builder)
-//            {
-//                builder.HasKey(s => s.Id);
-//                builder.Property(s => s.FullName).IsRequired().HasMaxLength(100);
-//                builder.Property(s => s.Email).IsRequired().HasMaxLength(150);
-//                builder.Property(s => s.DateOfBirth).IsRequired();
-//            }
-//        }
-
-//        public class EnrollmentConfiguration : IEntityTypeConfiguration<Enrollment>
-//        {
-//            public void Configure(EntityTypeBuilder<Enrollment> builder)
+//            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 //            {
                 
-//                builder.HasKey(e => new { e.StudentId, e.CourseId });
+//                optionsBuilder.UseSqlServer("Server=.;Database=OnlineLearningPlatformDb;Trusted_Connection=True;TrustServerCertificate=True;");
+//            }
 
-//                builder.Property(e => e.EnrollmentDate).IsRequired();
-//                builder.Property(e => e.ProgressPercentage).IsRequired();
-//                builder.Property(e => e.Status).IsRequired();
-//                builder.Property(e => e.FinalGrade).HasColumnType("decimal(5,2)");
+//            protected override void OnModelCreating(ModelBuilder modelBuilder)
+//            {
+//                base.OnModelCreating(modelBuilder);
 
-//                builder.HasOne(e => e.Student)
-//                       .WithMany(s => s.Enrollments)
-//                       .HasForeignKey(e => e.StudentId)
-//                       .OnDelete(DeleteBehavior.Cascade);
-
-//                builder.HasOne(e => e.Course)
-//                       .WithMany(c => c.Enrollments)
-//                       .HasForeignKey(e => e.CourseId)
-//                       .OnDelete(DeleteBehavior.Cascade);
+                
+//                modelBuilder.ApplyConfigurationsFromAssembly(typeof(LearningPlatformDbContext).Assembly);
 //            }
 //        }
             #endregion
