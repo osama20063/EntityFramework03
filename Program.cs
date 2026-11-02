@@ -379,24 +379,76 @@ namespace Assignment_3_EF_Core
         #endregion
 
         #region Operation: Add Several Students
-    //    public static void AddStudents(LearningPlatformDbContext context)
-    //    {
-    //        var students = new List<Student>
-    //{
-    //    new Student { FullName = "Karim Nabil", Email = "karim@gmail.com", DateOfBirth = new DateTime(2001, 4, 10) },
-    //    new Student { FullName = "Nourhan Adel", Email = "nourhan@gmail.com", DateOfBirth = new DateTime(2002, 9, 25) },
-    //    new Student { FullName = "Ziad Ahmed", Email = "ziad@gmail.com", DateOfBirth = new DateTime(2003, 12, 1) }
-    //};
+        //    public static void AddStudents(LearningPlatformDbContext context)
+        //    {
+        //        var students = new List<Student>
+        //{
+        //    new Student { FullName = "Karim Nabil", Email = "karim@gmail.com", DateOfBirth = new DateTime(2001, 4, 10) },
+        //    new Student { FullName = "Nourhan Adel", Email = "nourhan@gmail.com", DateOfBirth = new DateTime(2002, 9, 25) },
+        //    new Student { FullName = "Ziad Ahmed", Email = "ziad@gmail.com", DateOfBirth = new DateTime(2003, 12, 1) }
+        //};
 
-    //        context.Students.AddRange(students);
-    //        context.SaveChanges();
+        //        context.Students.AddRange(students);
+        //        context.SaveChanges();
 
-    //        Console.WriteLine("Students added successfully with the following IDs:");
-    //        foreach (var student in students)
-    //        {
-    //            Console.WriteLine($"- Student: {student.FullName}, Id: {student.Id}");
-    //        }
-    //    }
+        //        Console.WriteLine("Students added successfully with the following IDs:");
+        //        foreach (var student in students)
+        //        {
+        //            Console.WriteLine($"- Student: {student.FullName}, Id: {student.Id}");
+        //        }
+        //    }
+        #endregion
+
+
+        #region Operation: Enroll a Student
+        //public static void EnrollStudent(LearningPlatformDbContext context, int studentId, int courseId)
+        //{
+            
+        //    var studentExists = context.Students.Any(s => s.Id == studentId);
+        //    if (!studentExists)
+        //    {
+        //        Console.WriteLine($"Enrollment refused: Student with Id {studentId} does not exist.");
+        //        return;
+        //    }
+
+            
+        //    var course = context.Courses.FirstOrDefault(c => c.Id == courseId);
+        //    if (course == null)
+        //    {
+        //        Console.WriteLine($"Enrollment refused: Course with Id {courseId} does not exist.");
+        //        return;
+        //    }
+
+        //    if (!course.IsPublished)
+        //    {
+        //        Console.WriteLine($"Enrollment refused: Course '{course.Title}' is not published yet and cannot accept enrollments.");
+        //        return;
+        //    }
+
+            
+        //    var alreadyEnrolled = context.Enrollments.Any(e => e.StudentId == studentId && e.CourseId == courseId);
+        //    if (alreadyEnrolled)
+        //    {
+        //        Console.WriteLine($"Enrollment refused: Student with Id {studentId} is already enrolled in this course.");
+        //        return;
+        //    }
+
+            
+        //    var enrollment = new Enrollment
+        //    {
+        //        StudentId = studentId,
+        //        CourseId = courseId,
+        //        EnrollmentDate = DateTime.Now,
+        //        ProgressPercentage = 0,
+        //        Status = EnrollmentStatus.Active,
+        //        FinalGrade = null
+        //    };
+
+        //    context.Enrollments.Add(enrollment);
+        //    context.SaveChanges();
+
+        //    Console.WriteLine($"Student {studentId} successfully enrolled in course '{course.Title}'!");
+        //}
         #endregion
 
     }
