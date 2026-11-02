@@ -265,6 +265,60 @@ namespace Assignment_3_EF_Core
 //            }
         }
             #endregion
-    }
+
+
+        #region Question 5: Program.cs Seeding and Execution
+//using System;
+//using System.Linq;
+//using Microsoft.EntityFrameworkCore;
+
+//class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            using var context = new LearningPlatformDbContext();
+
+            
+//            context.Database.EnsureCreated();
+
+            
+//            if (!context.Students.Any())
+//            {
+//                var students = new[]
+//                {
+//                new Student { FullName = "Youssef Mohamed", Email = "youssef@gmail.com", DateOfBirth = new DateTime(2002, 5, 12) },
+//                new Student { FullName = "Fatma Zohra", Email = "fatma@gmail.com", DateOfBirth = new DateTime(2001, 8, 20) },
+//                new Student { FullName = "Ibrahim Khaled", Email = "ibrahim@gmail.com", DateOfBirth = new DateTime(2003, 1, 15) },
+//                new Student { FullName = "Salma Tarek", Email = "salma@gmail.com", DateOfBirth = new DateTime(2000, 11, 5) },
+//                new Student { FullName = "Mahmoud Said", Email = "mahmoud@gmail.com", DateOfBirth = new DateTime(2002, 3, 30) }
+//            };
+
+//                context.Students.AddRange(students);
+//                context.SaveChanges();
+//                Console.WriteLine("Students seeded successfully.");
+//            }
+
+//            if (!context.Enrollments.Any())
+//            {
+//                var enrollments = new[]
+//                {
+//                new Enrollment { StudentId = 1, CourseId = 1, EnrollmentDate = DateTime.Now.AddDays(-10), ProgressPercentage = 100, Status = EnrollmentStatus.Completed, FinalGrade = 95.00m },
+//                new Enrollment { StudentId = 1, CourseId = 2, EnrollmentDate = DateTime.Now.AddDays(-5), ProgressPercentage = 40, Status = EnrollmentStatus.Active, FinalGrade = null },
+//                new Enrollment { StudentId = 2, CourseId = 1, EnrollmentDate = DateTime.Now.AddDays(-8), ProgressPercentage = 100, Status = EnrollmentStatus.Completed, FinalGrade = 88.50m },
+//                new Enrollment { StudentId = 2, CourseId = 3, EnrollmentDate = DateTime.Now.AddDays(-3), ProgressPercentage = 10, Status = EnrollmentStatus.Active, FinalGrade = null },
+//                new Enrollment { StudentId = 3, CourseId = 3, EnrollmentDate = DateTime.Now.AddDays(-15), ProgressPercentage = 100, Status = EnrollmentStatus.Completed, FinalGrade = 92.00m },
+//                new Enrollment { StudentId = 3, CourseId = 5, EnrollmentDate = DateTime.Now.AddDays(-2), ProgressPercentage = 0, Status = EnrollmentStatus.Dropped, FinalGrade = null },
+//                new Enrollment { StudentId = 4, CourseId = 2, EnrollmentDate = DateTime.Now.AddDays(-6), ProgressPercentage = 60, Status = EnrollmentStatus.Active, FinalGrade = null },
+//                new Enrollment { StudentId = 5, CourseId = 5, EnrollmentDate = DateTime.Now.AddDays(-12), ProgressPercentage = 100, Status = EnrollmentStatus.Completed, FinalGrade = 90.00m }
+//            };
+
+//                context.Enrollments.AddRange(enrollments);
+//                context.SaveChanges();
+//                Console.WriteLine("Enrollments seeded successfully covering all three statuses.");
+//            }
+//        }
+//    }
+            #endregion
+}
 }
 }
