@@ -187,30 +187,83 @@ namespace Assignment_3_EF_Core
 
 
             #region Question 3: DbContext Setup
-//            using Microsoft.EntityFrameworkCore;
+            //            using Microsoft.EntityFrameworkCore;
 
-//public class LearningPlatformDbContext : DbContext
+            //public class LearningPlatformDbContext : DbContext
+            //        {
+            //            public DbSet<Instructor> Instructors { get; set; }
+            //            public DbSet<Category> Categories { get; set; }
+            //            public DbSet<Course> Courses { get; set; }
+            //            public DbSet<Student> Students { get; set; }
+            //            public DbSet<Enrollment> Enrollments { get; set; }
+
+            //            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+            //            {
+
+            //                optionsBuilder.UseSqlServer("Server=.;Database=OnlineLearningPlatformDb;Trusted_Connection=True;TrustServerCertificate=True;");
+            //            }
+
+            //            protected override void OnModelCreating(ModelBuilder modelBuilder)
+            //            {
+            //                base.OnModelCreating(modelBuilder);
+
+
+            //                modelBuilder.ApplyConfigurationsFromAssembly(typeof(LearningPlatformDbContext).Assembly);
+            //            }
+            //        }
+            #endregion
+
+
+
+            #region Question 4: Data Seeding via HasData
+            
+//public class CategoryConfiguration : IEntityTypeConfiguration<Category>
 //        {
-//            public DbSet<Instructor> Instructors { get; set; }
-//            public DbSet<Category> Categories { get; set; }
-//            public DbSet<Course> Courses { get; set; }
-//            public DbSet<Student> Students { get; set; }
-//            public DbSet<Enrollment> Enrollments { get; set; }
-
-//            protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//            public void Configure(EntityTypeBuilder<Category> builder)
 //            {
-                
-//                optionsBuilder.UseSqlServer("Server=.;Database=OnlineLearningPlatformDb;Trusted_Connection=True;TrustServerCertificate=True;");
-//            }
+               
 
-//            protected override void OnModelCreating(ModelBuilder modelBuilder)
-//            {
-//                base.OnModelCreating(modelBuilder);
-
-                
-//                modelBuilder.ApplyConfigurationsFromAssembly(typeof(LearningPlatformDbContext).Assembly);
+//                builder.HasData(
+//                    new Category { Id = 1, Name = "Programming", Description = "Software development courses", ParentId = null },
+//                    new Category { Id = 2, Name = "Backend", Description = "Server-side development", ParentId = 1 },
+//                    new Category { Id = 3, Name = "ASP.NET", Description = "ASP.NET Core web framework", ParentId = 2 },
+//                    new Category { Id = 4, Name = "Frontend", Description = "Client-side development", ParentId = 1 },
+//                    new Category { Id = 5, Name = "Database", Description = "Database design and SQL", ParentId = null }
+//                );
 //            }
 //        }
+
+        
+//        public class InstructorConfiguration : IEntityTypeConfiguration<Instructor>
+//        {
+//            public void Configure(EntityTypeBuilder<Instructor> builder)
+//            {
+                
+
+//                builder.HasData(
+//                    new Instructor { Id = 1, FullName = "Ahmed Ali", Email = "ahmed.ali@platform.com", Bio = "Senior .NET Developer", JoinedDate = new DateTime(2023, 1, 10) },
+//                    new Instructor { Id = 2, FullName = "Mona Hassan", Email = "mona.hassan@platform.com", Bio = "Database Expert", JoinedDate = new DateTime(2023, 3, 15) },
+//                    new Instructor { Id = 3, FullName = "Khaled Omar", Email = "khaled.omar@platform.com", Bio = "Full Stack Engineer", JoinedDate = new DateTime(2023, 5, 20) }
+//                );
+//            }
+//        }
+
+        
+//        public class CourseConfiguration : IEntityTypeConfiguration<Course>
+//        {
+//            public void Configure(EntityTypeBuilder<Course> builder)
+//            {
+                
+//                builder.HasData(
+//                    new Course { Id = 1, Title = "C# Basics", Description = "Introduction to C#", Price = 100.00m, Level = CourseLevel.Beginner, IsPublished = true, PublishedDate = new DateTime(2023, 2, 1), InstructorId = 1, CategoryId = 1 },
+//                    new Course { Id = 2, Title = "Advanced ASP.NET Core", Description = "Build Web APIs", Price = 250.00m, Level = CourseLevel.Advanced, IsPublished = true, PublishedDate = new DateTime(2023, 4, 1), InstructorId = 1, CategoryId = 3 },
+//                    new Course { Id = 3, Title = "SQL Server Masterclass", Description = "T-SQL and Tuning", Price = 150.00m, Level = CourseLevel.Intermediate, IsPublished = true, PublishedDate = new DateTime(2023, 6, 1), InstructorId = 2, CategoryId = 5 },
+//                    new Course { Id = 4, Title = "React for Beginners", Description = "Frontend UI library", Price = 120.00m, Level = CourseLevel.Beginner, IsPublished = false, PublishedDate = null, InstructorId = 3, CategoryId = 4 },
+//                    new Course { Id = 5, Title = "Entity Framework Core", Description = "ORM in depth", Price = 200.00m, Level = CourseLevel.Intermediate, IsPublished = true, PublishedDate = new DateTime(2023, 7, 1), InstructorId = 1, CategoryId = 2 },
+//                    new Course { Id = 6, Title = "System Architecture", Description = "Design patterns", Price = 300.00m, Level = CourseLevel.Advanced, IsPublished = false, PublishedDate = null, InstructorId = 3, CategoryId = 1 }
+//                );
+//            }
+        }
             #endregion
     }
 }
