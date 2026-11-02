@@ -451,6 +451,103 @@ namespace Assignment_3_EF_Core
         //}
         #endregion
 
-    }
+
+        #region Operations: Read
+//using System;
+//using System.Linq;
+
+//public class ReadOperations
+//    {
+       
+//        public static void FindCourse(LearningPlatformDbContext context, int? id, string? title)
+//        {
+//            Course? course = null;
+
+//            if (id.HasValue)
+//            {
+//                course = context.Courses.Find(id.Value);
+//            }
+//            else if (!string.IsNullOrEmpty(title))
+//            {
+//                course = context.Courses.FirstOrDefault(c => c.Title == title);
+//            }
+
+//            if (course == null)
+//            {
+//                Console.WriteLine("not found");
+//            }
+//            else
+//            {
+//                Console.WriteLine($"Found -> Title: {course.Title}, Level: {course.Level}, Price: {course.Price}");
+//            }
+//        }
+
+//        public static void FilterCoursesByPrice(LearningPlatformDbContext context, decimal minPrice, decimal maxPrice)
+//        {
+//            var courses = context.Courses
+//                .Where(c => c.Price >= minPrice && c.Price <= maxPrice)
+//                .OrderByDescending(c => c.Price)
+//                .Select(c => new { c.Title, c.Level, c.Price })
+//                .ToList();
+
+//            Console.WriteLine($"Courses between {minPrice} and {maxPrice} (Ordered by price desc):");
+//            foreach (var c in courses)
+//            {
+//                Console.WriteLine($"Title: {c.Title} | Level: {c.Level} | Price: {c.Price}");
+//            }
+//        }
+
+    
+//        public static void PrintCategoriesInfo(LearningPlatformDbContext context, int parentCategoryId)
+//        {
+//            var subCategories = context.Categories
+//                .Where(c => c.ParentId == parentCategoryId)
+//                .ToList();
+
+//            Console.WriteLine($"Direct Sub-categories of Category ID {parentCategoryId}:");
+//            foreach (var sub in subCategories)
+//            {
+//                Console.WriteLine($"- {sub.Name}");
+//            }
+
+//            var topLevelCategories = context.Categories
+//                .Where(c => c.ParentId == null)
+//                .ToList();
+
+//            Console.WriteLine("\nTop-level Categories:");
+//            foreach (var top in topLevelCategories)
+//            {
+//                Console.WriteLine($"- {top.Name}");
+//            }
+//        }
+
+   
+//        public static void PrintCourseRoster(LearningPlatformDbContext context, int courseId)
+//        {
+//            var studentIds = context.Enrollments
+//                .Where(e => e.CourseId == courseId)
+//                .Select(e => e.StudentId)
+//                .ToList();
+
+//            Console.WriteLine($"Number of students enrolled in course ID {courseId}: {studentIds.Count}");
+
+//            if (studentIds.Any())
+//            {
+//                var students = context.Students
+//                    .Where(s => studentIds.Contains(s.Id))
+//                    .Select(s => s.FullName)
+//                    .ToList();
+
+//                Console.WriteLine("Enrolled Students Names:");
+//                foreach (var name in students)
+//                {
+//                    Console.WriteLine($"- {name}");
+//                }
+//            }
+//        }
+//    }
+            #endregion
+
+}
 }
 }
